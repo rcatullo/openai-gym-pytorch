@@ -45,15 +45,15 @@ Transition = namedtuple('Transition', ('state', 'action', 'reward', 'next_state'
 class ReplayMemory(object):
     def __init__(self, capacity):
         self.memory = deque([], maxlen=capacity)
-    
+
     # Add transition to memory
     def push(self, *args):
         self.memory.append(Transition(*args))
-    
+
     # Sample batch from memory
     def sample(self, batch_size):
         return random.sample(self.memory, batch_size)
-    
+
     def __len__(self):
         return len(self.memory)
 
@@ -63,13 +63,13 @@ class model(nn.Module):
         self.layer1 = nn.Linear(input_dim, 128)
         self.layer2 = nn.Linear(128, 128)
         self.layer3 = nn.Linear(128, output_dim)
-    
+
     def init_weights(self):
         if isinstance(self, nn.Linear):
             init.kaiming_normal_(self.weight)
-    
-    # Compute either one element to determine action 
-    # or batch during training. 
+
+    # Compute either one element to determine action
+    # or batch during training.
     # Returns tensor([[Qleft,Qright]...]).
     def forward(self, x):
         x = F.relu(self.layer1(x))
@@ -125,7 +125,7 @@ episode_durations = []
 
 def plot_durations(show_result=False):
     plt.figure(1)
-    durations_t = torch.tensor(episode_durations, dtype=torch.float, device=device)
+    durations_t = torch.tensor(episode_durations, dtype=torch.float)
     if show_result:
         plt.title('Result')
     else:
@@ -155,7 +155,7 @@ def optimize_model():
     transitions = memory.sample(BATCH_SIZE)
 
     # Transpose array of transitions to Transition of arrays
-    # E.g. batch.state, batch.action, ... are arrays of Tensors representing Transitions. 
+    # E.g. batch.state, batch.action, ... are arrays of Tensors representing Transitions.
     batch = Transition(*zip(*transitions))
 
     # Tensor of next_states in batch which are not final
@@ -174,7 +174,7 @@ def optimize_model():
     non_final_mask = torch.tensor(tuple(map(lambda s: s is not None, batch.next_state)), dtype=torch.bool, device=device)
     with torch.no_grad():
         next_state_values[non_final_mask] = target_net(non_final_next_states).max(1).values
-    
+
     # target = r + gamma * max Q(s', a')
     target_state_action_values = reward_batch + GAMMA * next_state_values
 
