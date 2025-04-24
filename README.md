@@ -23,7 +23,7 @@ This repository provides a PyTorch implementation of the Deep Q-Network (DQN) al
 ```
 openai-gym-pytorch/
 ├── models/
-│   ├── cartpole-v0/
+│   ├── cartpole-v1/
 │   │   └── dqn.py
 │   └── mountain-cart-v0/
 │       ├── curiosity-dqn.py
@@ -33,7 +33,7 @@ openai-gym-pytorch/
 ├── README.md
 ```
 
-- `models/cartpole-v0/dqn.py`: DQN agent for CartPole-v1.
+- `models/cartpole-v1/dqn.py`: DQN agent for CartPole-v1.
 - `models/mountain-cart-v0/curiosity-dqn.py`: DQN agent with curiosity for MountainCarContinuous-v0.
 - `models/mountain-cart-v0/forward-dynamics-model/`: Scripts for training and using a forward dynamics model.
 
@@ -73,7 +73,7 @@ brew install ffmpeg
 Train a DQN agent on CartPole-v1:
 
 ```bash
-python models/cartpole-v0/dqn.py
+python models/cartpole-v1/dqn.py
 ```
 
 Videos and training statistics will be saved in the `cartpole-agent` directory.
