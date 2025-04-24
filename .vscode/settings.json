@@ -1,5 +1,0 @@
-{
-    "python.analysis.extraPaths": [
-        "./models/mountain-cart-v0/forward-dynamics-model"
-    ]
-}
