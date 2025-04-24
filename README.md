@@ -115,6 +115,6 @@ Videos and training statistics will be saved in the `mountain-cart-agent` direct
 
 ## More Information
 
-See https://rcatullo/stacks/dqn for more details on this specific implementation.
+See https://rcatullo.com/stacks/dqn for more details on this specific implementation.
 
 ---
