@@ -21,7 +21,7 @@ This repository provides a PyTorch implementation of the Deep Q-Network (DQN) al
 ## Directory Structure
 
 ```
-pytorch-dqn-example/
+openai-gym-pytorch/
 ├── models/
 │   ├── cartpole-v0/
 │   │   └── dqn.py
