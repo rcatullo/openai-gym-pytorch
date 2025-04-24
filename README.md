@@ -1,6 +1,6 @@
-# pytorch-dqn-example
+# openai-gym-pytorch
 
-Implementation of PyTorch's DQN algorithm which uses OpenAI's CartPole gym environment.
+Implementation of PyTorch's DQN algorithm which uses OpenAI's CartPole gym environment, and extension to curiosity-driven exploration to solve continuous mountaincart (usually solved by DDPG).
 
 ## Overview
 
